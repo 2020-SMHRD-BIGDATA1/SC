@@ -14,6 +14,8 @@ import javax.swing.Icon;
 import java.awt.event.ActionListener;
 import java.net.URL;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Font;
 
 public class MainGUIUser {
 
@@ -74,6 +76,20 @@ public class MainGUIUser {
 		btnBoard.setOpaque(false);
 		btnBoard.setContentAreaFilled(false);
 		btnBoard.setBorderPainted(false);
+		
+		
+		JButton btnNewButton = new JButton("Logout");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				LoginGUI login = new LoginGUI();
+			}
+		});
+		btnNewButton.setForeground(new Color(0, 204, 153));
+		btnNewButton.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
+		btnNewButton.setBackground(new Color(0, 0, 0));
+		btnNewButton.setBounds(1042, 28, 122, 36);
+		panel.add(btnNewButton);
 		
 		URL url = this.getClass().getResource("../GUI_Image/user_main.jpg");
 		JLabel login_background = new JLabel(new ImageIcon(url.getPath()));

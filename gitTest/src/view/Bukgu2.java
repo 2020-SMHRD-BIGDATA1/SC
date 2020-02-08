@@ -114,7 +114,7 @@ public class Bukgu2 extends JFrame {
 				MainGUIManager mainManager = new MainGUIManager();				
 			}
 		});
-		btn_storage.setForeground(new Color(0, 204, 153));
+		btn_storage.setForeground(Color.PINK);
 		btn_storage.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
 		btn_storage.setBackground(Color.BLACK);
 		btn_storage.setBounds(31, 32, 113, 32);
@@ -127,7 +127,7 @@ public class Bukgu2 extends JFrame {
 				GwangjuMapMain2 gwangjumap = new GwangjuMapMain2();
 			}
 		});
-		btn_storage_1.setForeground(new Color(0, 204, 153));
+		btn_storage_1.setForeground(Color.PINK);
 		btn_storage_1.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
 		btn_storage_1.setBackground(Color.BLACK);
 		btn_storage_1.setBounds(31, 700, 113, 32);

@@ -126,7 +126,7 @@ public class GwangjuMapMain2 {
 			}
 		});
 		panel_2.add(btn_back);
-		btn_back.setForeground(new Color(0, 204, 153));
+		btn_back.setForeground(Color.PINK);
 		btn_back.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
 		btn_back.setBackground(Color.BLACK);
 		

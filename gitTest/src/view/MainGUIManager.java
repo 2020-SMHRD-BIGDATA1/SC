@@ -16,6 +16,7 @@ import java.awt.SystemColor;
 import java.net.URL;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class MainGUIManager {
 
@@ -97,7 +98,7 @@ public class MainGUIManager {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				frame.dispose();
-				RequestMainGUI requestMain = new RequestMainGUI();
+				SelectChartData selectdata = new SelectChartData();
 			}
 		});
 		btnGuitar.setBounds(412, 205, 303, 156);
@@ -110,7 +111,8 @@ public class MainGUIManager {
 		btnCctv.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				GwangjuMapMain gwangjumap = new GwangjuMapMain();
+				//GwangjuMapMain gwangjumap = new GwangjuMapMain();
+				GwangjuMapMain2 gwangjumap = new GwangjuMapMain2();
 			}
 		});
 		btnCctv.setBounds(412, 0, 303, 156);
@@ -119,10 +121,23 @@ public class MainGUIManager {
 		btnCctv.setBorderPainted(false);
 		panel_1.add(btnCctv);
 		
+		
+		JButton btnNewButton = new JButton("Logout");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frame.dispose();
+				LoginGUI login = new LoginGUI();
+			}
+		});
+		btnNewButton.setForeground(Color.PINK);
+		btnNewButton.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
+		btnNewButton.setBackground(Color.BLACK);
+		btnNewButton.setBounds(1035, 32, 122, 36);
+		panel.add(btnNewButton);
+		
 		URL url = this.getClass().getResource("../GUI_Image/manager_main.jpg");
 		JLabel login_background = new JLabel(new ImageIcon(url.getPath()));
 		login_background.setBounds(0, 0, 1200, 800);
 		panel.add(login_background);
 	}
-
 }

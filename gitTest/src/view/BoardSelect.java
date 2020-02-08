@@ -78,7 +78,7 @@ public class BoardSelect {
 		JPanel panel_1 = new JPanel();
 		panel_1.setLayout(null);
 		panel_1.setBounds(0, 0, 550, 800);
-		frame.add(panel_1);
+		frame.getContentPane().add(panel_1);
 		
 		btn_back = new JButton("\uB4A4\uB85C \uAC00\uAE30");
 		btn_back.addActionListener(new ActionListener() {
@@ -87,10 +87,10 @@ public class BoardSelect {
 				BoardShowMain boardmain = new BoardShowMain();
 			}
 		});
-		btn_back.setBounds(28, 703, 107, 29);
+		btn_back.setBounds(23, 740, 109, 29);
 		btn_back.setBackground(Color.BLACK);
-		btn_back.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
-		btn_back.setForeground(new Color(0, 204, 153));
+		btn_back.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 14));
+		btn_back.setForeground(Color.PINK);
 		panel_1.add(btn_back);
 		
 		btn_storage = new JButton("HOME");
@@ -110,21 +110,21 @@ public class BoardSelect {
 		
 		JLabel lblAddr = new JLabel("New label");
 		lblAddr.setBackground(Color.WHITE);
-		lblAddr.setBounds(153, 270, 416, 30);
+		lblAddr.setBounds(94, 236, 188, 23);
 		panel_1.add(lblAddr);
 		
 		lblAddr.setText(boardvo.getAddr());
 		
 		JLabel lblContent = new JLabel("New label");
 		lblContent.setVerticalAlignment(SwingConstants.TOP);
-		lblContent.setBounds(151, 358, 418, 393);
+		lblContent.setBounds(91, 290, 424, 415);
 		panel_1.add(lblContent);
 		
 		lblContent.setText(boardvo.getContent());
 		
 		JLabel lblMemberID = new JLabel("New label");
 		lblMemberID.setBackground(Color.WHITE);
-		lblMemberID.setBounds(106, 197, 416, 29);
+		lblMemberID.setBounds(106, 197, 176, 29);
 		panel_1.add(lblMemberID);
 		
 		lblMemberID.setText(boardvo.getId());
