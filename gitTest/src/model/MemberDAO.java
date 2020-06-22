@@ -60,6 +60,7 @@ public class MemberDAO {
 				String id = rs.getString("MemberID");
 				String pw = rs.getString("MemberPW");
 				String name = rs.getString("MemberName");
+				
 				loginUser = new MemberVO(id, pw, name);
 			}
 		} catch (SQLException e) {
