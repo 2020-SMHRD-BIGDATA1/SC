@@ -2,6 +2,8 @@ package view;
 
 import java.awt.CardLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,9 +15,6 @@ import javax.swing.JTextField;
 
 import controller.MemberMS;
 import model.MemberVO;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class LoginGUI {
 
@@ -108,7 +107,12 @@ public class LoginGUI {
 					JOptionPane.showMessageDialog(frame, (loginUser.getName() + " ´Ô ¹Ý°©½À´Ï´Ù."), "·Î±×ÀÎ",
 							JOptionPane.INFORMATION_MESSAGE);
 					frame.dispose();
-					MainGUIUser mainGUIUser = new MainGUIUser();
+					if (loginUser.getId().equals("admin")) {
+						MainGUIManager mainGUIManager = new MainGUIManager();
+					}else {
+						MainGUIUser mainGUIUser = new MainGUIUser();
+					}
+					
 				}
 				inputID.setText("");
 				inputPW.setText("");
