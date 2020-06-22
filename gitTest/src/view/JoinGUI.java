@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,6 +15,9 @@ import javax.swing.JTextField;
 
 import controller.MemberMS;
 import model.MemberVO;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import java.awt.Color;
 
 public class JoinGUI {
 
@@ -42,7 +46,7 @@ public class JoinGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 686, 461);
+		frame.setBounds(100, 100, 1210, 830);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 		
@@ -51,69 +55,56 @@ public class JoinGUI {
 		panel.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(12, 10, 646, 402);
+		panel_1.setBounds(0, 0, 1200, 800);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("\uD68C\uC6D0\uAC00\uC785");
-		lblNewLabel.setBounds(300, 10, 57, 15);
-		panel_1.add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("\uC544\uC774\uB514");
-		lblNewLabel_1.setBounds(41, 54, 57, 15);
-		panel_1.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_1_1 = new JLabel("\uBE44\uBC00\uBC88\uD638");
-		lblNewLabel_1_1.setBounds(41, 84, 57, 15);
-		panel_1.add(lblNewLabel_1_1);
-		
-		JLabel lblNewLabel_1_2 = new JLabel("\uC774\uB984");
-		lblNewLabel_1_2.setBounds(41, 121, 57, 15);
-		panel_1.add(lblNewLabel_1_2);
-		
-		JLabel lblNewLabel_1_3 = new JLabel("\uC8FC\uC18C");
-		lblNewLabel_1_3.setBounds(41, 155, 57, 15);
-		panel_1.add(lblNewLabel_1_3);
-		
-		JLabel lblNewLabel_1_4 = new JLabel("\uC5F0\uB77D\uCC98");
-		lblNewLabel_1_4.setBounds(41, 188, 57, 15);
-		panel_1.add(lblNewLabel_1_4);
-		
-		JLabel lblNewLabel_1_5 = new JLabel("\uC8FC\uBBFC\uB4F1\uB85D\uBC88\uD638");
-		lblNewLabel_1_5.setBounds(41, 226, 72, 15);
-		panel_1.add(lblNewLabel_1_5);
-		
 		inputID = new JTextField();
-		inputID.setBounds(142, 51, 116, 21);
+		inputID.setHorizontalAlignment(SwingConstants.CENTER);
+		inputID.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 18));
+		inputID.setBounds(288, 306, 239, 41);
 		panel_1.add(inputID);
 		inputID.setColumns(10);
 		
 		inputPW = new JTextField();
+		inputPW.setHorizontalAlignment(SwingConstants.CENTER);
+		inputPW.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 18));
 		inputPW.setColumns(10);
-		inputPW.setBounds(142, 81, 116, 21);
+		inputPW.setBounds(689, 306, 239, 41);
 		panel_1.add(inputPW);
 		
 		inputName = new JTextField();
+		inputName.setHorizontalAlignment(SwingConstants.CENTER);
+		inputName.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 18));
 		inputName.setColumns(10);
-		inputName.setBounds(142, 118, 116, 21);
+		inputName.setBounds(288, 377, 241, 41);
 		panel_1.add(inputName);
 		
 		inputAddr = new JTextField();
+		inputAddr.setHorizontalAlignment(SwingConstants.CENTER);
+		inputAddr.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 18));
 		inputAddr.setColumns(10);
-		inputAddr.setBounds(142, 152, 116, 21);
+		inputAddr.setBounds(288, 519, 640, 41);
 		panel_1.add(inputAddr);
 		
 		inputPhone = new JTextField();
+		inputPhone.setHorizontalAlignment(SwingConstants.CENTER);
+		inputPhone.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 18));
 		inputPhone.setColumns(10);
-		inputPhone.setBounds(131, 185, 116, 21);
+		inputPhone.setBounds(689, 377, 239, 41);
 		panel_1.add(inputPhone);
 		
 		inputCode = new JTextField();
+		inputCode.setHorizontalAlignment(SwingConstants.CENTER);
+		inputCode.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 18));
 		inputCode.setColumns(10);
-		inputCode.setBounds(142, 223, 116, 21);
+		inputCode.setBounds(381, 449, 547, 41);
 		panel_1.add(inputCode);
 		
-		btnJoin = new JButton("\uD68C\uC6D0\uAC00\uC785");
+		btnJoin = new JButton("Check");
+		btnJoin.setForeground(Color.WHITE);
+		btnJoin.setBackground(Color.BLACK);
+		btnJoin.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 18));
 		btnJoin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -136,10 +127,13 @@ public class JoinGUI {
 				}
 			}
 		});
-		btnJoin.setBounds(187, 343, 97, 23);
+		btnJoin.setBounds(351, 615, 154, 46);
 		panel_1.add(btnJoin);
 		
-		btnCancel = new JButton("\uCDE8\uC18C");
+		btnCancel = new JButton("Cancel");
+		btnCancel.setForeground(Color.WHITE);
+		btnCancel.setBackground(Color.BLACK);
+		btnCancel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 18));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -147,8 +141,13 @@ public class JoinGUI {
 				LoginGUI login = new LoginGUI();
 			}
 		});
-		btnCancel.setBounds(317, 343, 97, 23);
+		btnCancel.setBounds(622, 615, 154, 46);
 		panel_1.add(btnCancel);
+		
+		String path = "C:\\Users\\SMHRD\\Desktop\\JavaStudy\\join_main.jpg";
+		JLabel login_background = new JLabel(new ImageIcon(path));
+		login_background.setBounds(0, 0, 1200, 800);
+		panel_1.add(login_background);
 	}
 
 }

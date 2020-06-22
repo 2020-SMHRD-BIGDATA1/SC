@@ -2,7 +2,10 @@ package view;
 
 import java.awt.CardLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,9 +16,9 @@ import javax.swing.JTextField;
 
 import controller.MemberMS;
 import model.MemberVO;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
+import java.awt.Color;
+import java.awt.Font;
 
 public class LoginGUI {
 
@@ -52,7 +55,7 @@ public class LoginGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 719, 411);
+		frame.setBounds(100, 100, 1210, 830);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 		
@@ -61,32 +64,27 @@ public class LoginGUI {
 		panel.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(12, 10, 679, 352);
+		panel_1.setBounds(0, 0, 1200, 800);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("id");
-		lblNewLabel.setBounds(89, 120, 57, 15);
-		panel_1.add(lblNewLabel);
-		
-		JLabel lblPw = new JLabel("pw");
-		lblPw.setBounds(89, 173, 57, 15);
-		panel_1.add(lblPw);
-		
 		inputID = new JTextField();
-		inputID.setBounds(199, 117, 116, 21);
+		inputID.setHorizontalAlignment(SwingConstants.CENTER);
+		inputID.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 20));
+		inputID.setBounds(448, 449, 307, 48);
 		panel_1.add(inputID);
 		inputID.setColumns(10);
 		
 		inputPW = new JPasswordField();
-		inputPW.setBounds(199, 173, 116, 21);
+		inputPW.setHorizontalAlignment(SwingConstants.CENTER);
+		inputPW.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 20));
+		inputPW.setBounds(448, 514, 307, 48);
 		panel_1.add(inputPW);
 		
-		JLabel lblNewLabel_1 = new JLabel("Login");
-		lblNewLabel_1.setBounds(300, 23, 57, 15);
-		panel_1.add(lblNewLabel_1);
-		
-		JButton btnLogin = new JButton("\uB85C\uADF8\uC778");
+		JButton btnLogin = new JButton("Login");
+		btnLogin.setForeground(new Color(255, 255, 255));
+		btnLogin.setBackground(new Color(0, 0, 0));
+		btnLogin.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 18));
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -111,17 +109,26 @@ public class LoginGUI {
 				inputPW.setText("");
 			}
 		});
-		btnLogin.setBounds(136, 278, 97, 23);
+		btnLogin.setBounds(431, 590, 154, 46);
 		panel_1.add(btnLogin);
 		
-		JButton btnJoin = new JButton("\uD68C\uC6D0\uAC00\uC785");
+		JButton btnJoin = new JButton("Join");
+		btnJoin.setForeground(new Color(255, 255, 255));
+		btnJoin.setBackground(new Color(0, 0, 0));
+		btnJoin.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 18));
 		btnJoin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				JoinGUI join = new JoinGUI();
 			}
 		});
-		btnJoin.setBounds(289, 278, 97, 23);
+		btnJoin.setBounds(622, 590, 154, 46);
 		panel_1.add(btnJoin);
+
+		String path = "C:\\Users\\SMHRD\\Desktop\\JavaStudy\\login_main.jpg";
+		JLabel login_background = new JLabel(new ImageIcon(path));
+		login_background.setBounds(0, 0, 1200, 800);
+		panel_1.add(login_background);
+		
 	}
 }
