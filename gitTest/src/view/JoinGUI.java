@@ -115,15 +115,18 @@ public class JoinGUI {
 				String phone = inputPhone.getText();
 				String code = inputCode.getText();
 				
-				MemberVO joinUser = new MemberVO (id, pw, name, addr, phone, code);				
-				int cnt = controller.join(joinUser);
-				if (cnt == 1) {
-					JOptionPane.showMessageDialog(frame, "회원가입 성공~~~!!!~~!!~!!!", "회원가입",
+				if (id.equals("") || pw.equals("") || name.equals("") || addr.equals("") || phone.equals("") || code.equals("")) {
+					JOptionPane.showMessageDialog(frame, "입력되지 않은 값이 있습니다.", "회원가입",
 							JOptionPane.INFORMATION_MESSAGE);
-					frame.dispose();
+					
 				}else {
-					JOptionPane.showMessageDialog(frame, "회원가입 실패~~~!!!~~!!~!!!", "회원가입",
-							JOptionPane.INFORMATION_MESSAGE);
+					MemberVO joinUser = new MemberVO (id, pw, name, addr, phone, code);				
+					int cnt = controller.join(joinUser);
+					if (cnt == 1) {
+						JOptionPane.showMessageDialog(frame, "회원가입에 성공하셨습니다.", "회원가입",
+								JOptionPane.INFORMATION_MESSAGE);
+						frame.dispose();
+					}
 				}
 			}
 		});

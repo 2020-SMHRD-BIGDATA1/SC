@@ -94,16 +94,24 @@ public class LoginGUI {
 				System.out.println(id + pw);
 
 				MemberVO user = new MemberVO(id, pw);
-				boolean isSuccess = controller.login(user);
-				if (isSuccess == true) {
-					JOptionPane.showMessageDialog(frame, "로그인 성공~~~!!!~~!!~!!!", "로그인",
+				
+				MemberVO loginUser = controller.login(user);
+				
+				if (loginUser == null) {
+					
+					JOptionPane.showMessageDialog(frame, "아이디 또는 비밀번호를 다시 확인해주세요.", "로그인",
+							JOptionPane.INFORMATION_MESSAGE);
+										
+				} else {
+					JOptionPane.showMessageDialog(frame, (loginUser.getName() + " 님 반갑습니다."), "로그인",
 							JOptionPane.INFORMATION_MESSAGE);
 					frame.dispose();
-					MainGUIUser mainGUIUser = new MainGUIUser();
+					if (loginUser.getId().equals("admin")) {
+						MainGUIManager mainGUIManager = new MainGUIManager();
+					}else {
+						MainGUIUser mainGUIUser = new MainGUIUser();
+					}
 					
-				} else {
-					JOptionPane.showMessageDialog(frame, "로그인 실패~~~!!!~~!!~!!!", "로그인",
-							JOptionPane.INFORMATION_MESSAGE);
 				}
 				inputID.setText("");
 				inputPW.setText("");

@@ -24,6 +24,15 @@ public class MemberVO {
 		this.id = id;
 		this.pw = pw;
 	}
+	
+
+
+	public MemberVO(String id, String pw, String name) {
+	
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+	}
 
 
 

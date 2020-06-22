@@ -3,8 +3,11 @@ package view;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.GridLayout;
 
@@ -26,7 +29,7 @@ public class MainGUIUser {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 645, 425);
+		frame.setBounds(100, 100, 1210, 830);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 		
@@ -44,6 +47,11 @@ public class MainGUIUser {
 		
 		JButton btnBoard = new JButton("\uCC38\uC5EC\uAC8C\uC2DC\uD310");
 		panel_1.add(btnBoard);
+		
+		String path = "C:\\Users\\SMHRD\\Desktop\\JavaStudy\\join_main.jpg";
+		JLabel login_background = new JLabel(new ImageIcon(path));
+		login_background.setBounds(0, 0, 1200, 800);
+		panel_1.add(login_background);
 	}
 
 }

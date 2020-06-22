@@ -13,14 +13,14 @@ public class MemberMS {
 		return loginUser;
 	}
 
-	public boolean login(MemberVO user) {
+	public MemberVO login(MemberVO user) {
 
 		loginUser = dao.selectOne(user);
 
 		if (loginUser == null) {
-			return false;
+			return null;
 		}else {
-			return true;
+			return loginUser;
 		}
 
 	}
