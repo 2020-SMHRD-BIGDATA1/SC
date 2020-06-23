@@ -37,21 +37,38 @@ public class MainGUIUser {
 		frame.getContentPane().add(panel, "name_959165121496500");
 		panel.setLayout(null);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(35, 44, 531, 255);
-		panel.add(panel_1);
-		panel_1.setLayout(new GridLayout(0, 2, 30, 0));
+		JPanel panel_2 = new JPanel();
+		panel_2.setBounds(0, 0, 1200, 800);
+		panel.add(panel_2);
+		panel_2.setLayout(null);
 		
-		JButton btnCctv = new JButton("cctv \uC870\uD68C");
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(219, 308, 763, 143);
+		panel_1.setOpaque(false);
+		panel_2.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JButton btnCctv = new JButton("");
+		btnCctv.setBounds(0, 0, 322, 143);
+		btnCctv.setOpaque(false);
+		btnCctv.setContentAreaFilled(false);
+		btnCctv.setBorderPainted(false);
 		panel_1.add(btnCctv);
 		
-		JButton btnBoard = new JButton("\uCC38\uC5EC\uAC8C\uC2DC\uD310");
+		JButton btnBoard = new JButton("");
+		btnBoard.setBounds(440, 0, 322, 143);
+		btnBoard.setOpaque(false);
+		btnBoard.setContentAreaFilled(false);
+		btnBoard.setBorderPainted(false);
 		panel_1.add(btnBoard);
 		
-		String path = "C:\\Users\\SMHRD\\Desktop\\JavaStudy\\join_main.jpg";
+		JPanel panel_3 = new JPanel();
+		panel_3.setBounds(0, 0, 1200, 800);
+		panel_2.add(panel_3);
+		
+		String path = "C:\\Users\\SMHRD\\Desktop\\JavaStudy\\user_main.jpg";
 		JLabel login_background = new JLabel(new ImageIcon(path));
 		login_background.setBounds(0, 0, 1200, 800);
-		panel_1.add(login_background);
+		panel_3.add(login_background);
 	}
-
 }

@@ -3,10 +3,16 @@ package view;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import java.awt.GridLayout;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.Color;
+import java.awt.SystemColor;
 
 public class MainGUIManager {
 
@@ -30,7 +36,7 @@ public class MainGUIManager {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 672, 431);
+		frame.setBounds(100, 100, 1210, 830);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 		
@@ -39,21 +45,43 @@ public class MainGUIManager {
 		panel.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(57, 42, 543, 288);
+		panel_1.setBounds(244, 249, 715, 362);
+		panel_1.setOpaque(false);
 		panel.add(panel_1);
-		panel_1.setLayout(new GridLayout(2, 2, 15, 15));
+		panel_1.setLayout(null);
 		
-		btnMembers = new JButton("\uD68C\uC6D0\uAD00\uB9AC");
+		btnMembers = new JButton("");
+		btnMembers.setBounds(0, 0, 303, 156);
+		btnMembers.setOpaque(false);
+		btnMembers.setContentAreaFilled(false);
+		btnMembers.setBorderPainted(false);
 		panel_1.add(btnMembers);
 		
-		btnCctv = new JButton("CCTV\uD604\uD669");
-		panel_1.add(btnCctv);
-		
-		btnBoard = new JButton("\uCC38\uC5EC\uAC8C\uC2DC\uD310 \uAD00\uB9AC");
+		btnBoard = new JButton("");
+		btnBoard.setBounds(0, 205, 303, 156);
+		btnBoard.setOpaque(false);
+		btnBoard.setContentAreaFilled(false);
+		btnBoard.setBorderPainted(false);
 		panel_1.add(btnBoard);
 		
-		btnGuitar = new JButton("\uAE30\uD0C0\uCC38\uACE0?");
+		btnGuitar = new JButton("");
+		btnGuitar.setBounds(412, 205, 303, 156);
+		btnGuitar.setOpaque(false);
+		btnGuitar.setContentAreaFilled(false);
+		btnGuitar.setBorderPainted(false);
 		panel_1.add(btnGuitar);
+		
+		btnCctv = new JButton("");
+		btnCctv.setBounds(412, 0, 303, 156);
+		btnCctv.setOpaque(false);
+		btnCctv.setContentAreaFilled(false);
+		btnCctv.setBorderPainted(false);
+		panel_1.add(btnCctv);
+		
+		String path = "C:\\Users\\SMHRD\\Desktop\\JavaStudy\\manager_main.jpg";
+		JLabel login_background = new JLabel(new ImageIcon(path));
+		login_background.setBounds(0, 0, 1200, 800);
+		panel.add(login_background);
 	}
 
 }
