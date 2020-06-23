@@ -10,10 +10,15 @@ import javax.swing.JPanel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.GridLayout;
+import javax.swing.Icon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainGUIUser {
 
 	private JFrame frame;
+	private JButton btnCctv;
+	private JButton btnBoard;
 
 
 	/**
@@ -34,41 +39,38 @@ public class MainGUIUser {
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 		
 		JPanel panel = new JPanel();
-		frame.getContentPane().add(panel, "name_959165121496500");
+		frame.getContentPane().add(panel, "name_1072622920134699");
 		panel.setLayout(null);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(0, 0, 1200, 800);
-		panel.add(panel_2);
-		panel_2.setLayout(null);
-		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(219, 308, 763, 143);
+		panel_1.setBounds(243, 337, 715, 157);
 		panel_1.setOpaque(false);
-		panel_2.add(panel_1);
+		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JButton btnCctv = new JButton("");
-		btnCctv.setBounds(0, 0, 322, 143);
+		btnCctv = new JButton("");
+		btnCctv.setBounds(0, 0, 302, 157);
 		btnCctv.setOpaque(false);
 		btnCctv.setContentAreaFilled(false);
 		btnCctv.setBorderPainted(false);
 		panel_1.add(btnCctv);
 		
-		JButton btnBoard = new JButton("");
-		btnBoard.setBounds(440, 0, 322, 143);
+		btnBoard = new JButton("");
+		btnBoard.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				BoardShowMain bsm = new BoardShowMain();
+			}
+		});
+		btnBoard.setBounds(416, 0, 297, 157);
+		panel_1.add(btnBoard);
 		btnBoard.setOpaque(false);
 		btnBoard.setContentAreaFilled(false);
 		btnBoard.setBorderPainted(false);
-		panel_1.add(btnBoard);
-		
-		JPanel panel_3 = new JPanel();
-		panel_3.setBounds(0, 0, 1200, 800);
-		panel_2.add(panel_3);
 		
 		String path = "C:\\Users\\SMHRD\\Desktop\\JavaStudy\\user_main.jpg";
 		JLabel login_background = new JLabel(new ImageIcon(path));
 		login_background.setBounds(0, 0, 1200, 800);
-		panel_3.add(login_background);
+		panel.add(login_background);
 	}
 }
