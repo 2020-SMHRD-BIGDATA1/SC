@@ -27,6 +27,7 @@ public class ShowDB extends JPanel implements MouseListener {
 	private JTable table = null;
 	Vector<String> colName = new Vector<String>();
 	private ArrayList<BoardVO> list = new ArrayList<BoardVO>();
+	private LoginGUI gui = new LoginGUI();
 	
 	public int getBoardNum(int row) {
 		return list.get(row).getNumber();
@@ -78,7 +79,7 @@ public class ShowDB extends JPanel implements MouseListener {
 		for(int i = 0; i < data.length; i++) {
 				data[i][0] = list.get(i).getNumber()+""; 
 				data[i][1] = list.get(i).getTitle(); 
-				data[i][2] = list.get(i).getId(); 
+				data[i][2] = gui.loginUser.getId(); 
 				data[i][3] = list.get(i).getDate(); 
 		}
 		DefaultTableModel model = new DefaultTableModel(data, header);

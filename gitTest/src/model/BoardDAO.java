@@ -68,13 +68,15 @@ public class BoardDAO {
 		getConnection();
 		
 		try {
-			String sql = "insert into BOARDS(boardNum, boardTitle, boardAddr, boardContent, memberID) "
-					+ "values (BOARDS_Sequence.NEXTVAL, ?, ?, ?, ?)";
+//			String sql = "insert into BOARDS(boardNum, boardTitle, boardAddr, boardContent, memberID) "
+//					+ "values (BOARDS_Sequence.NEXTVAL, ?, ?, ?, ?)";
+			String sql = "insert into BOARDS(boardNum, boardTitle, boardAddr, boardContent) "
+					+ "values (BOARDS_Sequence.NEXTVAL, ?, ?, ?)";
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, board.getTitle());
 			pst.setString(2, board.getAddr());
 			pst.setString(3, board.getContent());
-			pst.setString(4, "asjhklsd");//회원테이블에서 가져올 id
+//			pst.setString(4, "asjhklsd");//회원테이블에서 가져올 id
 			
 			row = pst.executeUpdate();
 			
