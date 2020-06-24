@@ -54,6 +54,21 @@ public class MainGUIManager {
 		panel_1.setLayout(null);
 		
 		btnMembers = new JButton("");
+		btnMembers.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				frame.dispose();
+				AdminShowMemberMain adminShowMemberMain = new AdminShowMemberMain();
+				
+				
+				
+				
+				
+				
+				
+			}
+		});
 		btnMembers.setBounds(0, 0, 303, 156);
 		btnMembers.setOpaque(false);
 		btnMembers.setContentAreaFilled(false);

@@ -137,15 +137,15 @@ public class MemberDAO {
 		return vo;
 	}
 
-	public int remove(int boardNum) {
+	public int remove(int memberNum) {
 		int cnt = 0;
 		getConnection();
-		System.out.println("여기야여기" + boardNum);
+		System.out.println("여기야여기" + memberNum);
 		try {
 			
-			String sql = "delete from MEMBERS where boardNUM = ?";
+			String sql = "delete from MEMBERS where memberNUM = ?";
 			pst = conn.prepareStatement(sql);
-			pst.setInt(1, boardNum);
+			pst.setInt(1, memberNum);
 		
 			cnt = pst.executeUpdate();
 			System.out.println("너는" + cnt);
