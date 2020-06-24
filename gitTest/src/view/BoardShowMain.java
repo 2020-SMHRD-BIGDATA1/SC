@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.net.URL;
 import java.util.Arrays;
 import java.awt.GridLayout;
 import java.awt.Font;
@@ -124,8 +125,8 @@ public class BoardShowMain {
 		frame.setBounds(100, 100, 1200, 800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		String path = "C:\\Users\\SMHRD\\Desktop\\JavaStudy\\user_board.jpg";
-		JLabel login_background = new JLabel(new ImageIcon(path));
+		URL url = this.getClass().getResource("../GUI_Image/user_board.jpg");
+		JLabel login_background = new JLabel(new ImageIcon(url.getPath()));
 		frame.getContentPane().add(login_background);
 		login_background.setBounds(0, 0, 1184, 761);
 	}

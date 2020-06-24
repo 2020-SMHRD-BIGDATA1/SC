@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.SystemColor;
+import java.net.URL;
 
 public class MainGUIManager {
 
@@ -78,8 +79,8 @@ public class MainGUIManager {
 		btnCctv.setBorderPainted(false);
 		panel_1.add(btnCctv);
 		
-		String path = "C:\\Users\\SMHRD\\Desktop\\JavaStudy\\manager_main.jpg";
-		JLabel login_background = new JLabel(new ImageIcon(path));
+		URL url = this.getClass().getResource("../GUI_Image/manager_main.jpg");
+		JLabel login_background = new JLabel(new ImageIcon(url.getPath()));
 		login_background.setBounds(0, 0, 1200, 800);
 		panel.add(login_background);
 	}
