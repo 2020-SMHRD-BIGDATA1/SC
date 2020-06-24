@@ -83,7 +83,7 @@ public class AdminShowMain {
 		});
 		btn_home.setBackground(new Color(0, 0, 0));
 		btn_home.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
-		btn_home.setForeground(new Color(0, 204, 153));
+		btn_home.setForeground(Color.PINK);
 		panel.add(btn_home);
 
 		JPanel panel_1 = new JPanel();
@@ -100,7 +100,7 @@ public class AdminShowMain {
 		});
 		btn_back.setBackground(new Color(0, 0, 0));
 		btn_back.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
-		btn_back.setForeground(new Color(0, 204, 153));
+		btn_back.setForeground(Color.PINK);
 		panel_1.add(btn_back);
 
 		frame.setBounds(100, 100, 1200, 800);
