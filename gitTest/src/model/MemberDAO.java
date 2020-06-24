@@ -104,4 +104,45 @@ public class MemberDAO {
 		return cnt;
 	}
 
+	public boolean idCheck(String id) {
+
+		boolean isCheck = false;
+		
+		getConnection();
+		
+		String sql = "select * from members where MemberID = ?";
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, id);
+			rs = pst.executeQuery();
+			if(rs.next()){
+				isCheck = true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return isCheck;
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

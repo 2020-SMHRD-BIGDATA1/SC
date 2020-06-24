@@ -31,5 +31,11 @@ public class MemberMS {
 				return cnt;
 		
 	}
+	// 아이디 중복체크
+	public boolean idCheck(String id) {
+		boolean isCheck = dao.idCheck(id);
+		return isCheck;
+	}
+	
 
 }

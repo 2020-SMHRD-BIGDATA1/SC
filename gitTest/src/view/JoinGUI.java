@@ -33,7 +33,6 @@ public class JoinGUI {
 	private JButton btnJoin;
 	private MemberMS controller = LoginGUI.controller;
 
-
 	/**
 	 * Create the application.
 	 */
@@ -50,104 +49,118 @@ public class JoinGUI {
 		frame.setBounds(100, 100, 1210, 830);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
-		
+
 		JPanel panel = new JPanel();
 		frame.getContentPane().add(panel, "name_957250320363000");
 		panel.setLayout(null);
-		
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(0, 0, 1200, 800);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
-		
+
 		inputID = new JTextField();
 		inputID.setHorizontalAlignment(SwingConstants.CENTER);
 		inputID.setFont(new Font("맑은 고딕", Font.PLAIN, 18));
 		inputID.setBounds(288, 306, 239, 41);
 		panel_1.add(inputID);
 		inputID.setColumns(10);
-		
+
 		inputPW = new JTextField();
 		inputPW.setHorizontalAlignment(SwingConstants.CENTER);
 		inputPW.setFont(new Font("맑은 고딕", Font.PLAIN, 18));
 		inputPW.setColumns(10);
 		inputPW.setBounds(689, 306, 239, 41);
 		panel_1.add(inputPW);
-		
+
 		inputName = new JTextField();
 		inputName.setHorizontalAlignment(SwingConstants.CENTER);
 		inputName.setFont(new Font("맑은 고딕", Font.PLAIN, 18));
 		inputName.setColumns(10);
 		inputName.setBounds(288, 377, 241, 41);
 		panel_1.add(inputName);
-		
+
 		inputAddr = new JTextField();
 		inputAddr.setHorizontalAlignment(SwingConstants.CENTER);
 		inputAddr.setFont(new Font("맑은 고딕", Font.PLAIN, 18));
 		inputAddr.setColumns(10);
 		inputAddr.setBounds(288, 519, 640, 41);
 		panel_1.add(inputAddr);
-		
+
 		inputPhone = new JTextField();
 		inputPhone.setHorizontalAlignment(SwingConstants.CENTER);
 		inputPhone.setFont(new Font("맑은 고딕", Font.PLAIN, 18));
 		inputPhone.setColumns(10);
 		inputPhone.setBounds(689, 377, 239, 41);
 		panel_1.add(inputPhone);
-		
+
 		inputCode = new JTextField();
 		inputCode.setHorizontalAlignment(SwingConstants.CENTER);
 		inputCode.setFont(new Font("맑은 고딕", Font.PLAIN, 18));
 		inputCode.setColumns(10);
 		inputCode.setBounds(381, 449, 547, 41);
 		panel_1.add(inputCode);
-		
+
 		btnJoin = new JButton("Check");
 		btnJoin.setForeground(Color.WHITE);
 		btnJoin.setBackground(Color.BLACK);
 		btnJoin.setFont(new Font("맑은 고딕", Font.BOLD, 18));
 		btnJoin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				String id = inputID.getText();
 				String pw = inputPW.getText();
 				String name = inputName.getText();
 				String addr = inputAddr.getText();
 				String phone = inputPhone.getText();
 				String code = inputCode.getText();
-				
-				if (id.equals("") || pw.equals("") || name.equals("") || addr.equals("") || phone.equals("") || code.equals("")) {
-					JOptionPane.showMessageDialog(frame, "입력되지 않은 값이 있습니다.", "회원가입",
-							JOptionPane.INFORMATION_MESSAGE);
-					
-				}else {
-					MemberVO joinUser = new MemberVO (id, pw, name, addr, phone, code);				
-					int cnt = controller.join(joinUser);
-					if (cnt == 1) {
-						JOptionPane.showMessageDialog(frame, "회원가입에 성공하셨습니다.", "회원가입",
-								JOptionPane.INFORMATION_MESSAGE);
-						frame.dispose();
+
+				if (id.equals("") || pw.equals("") || name.equals("") || addr.equals("") || phone.equals("")
+						|| code.equals("")) {
+					JOptionPane.showMessageDialog(frame, "입력되지 않은 값이 있습니다.", "회원가입", JOptionPane.INFORMATION_MESSAGE);
+
+				} else {
+
+					boolean isCheck = controller.idCheck(id);
+
+					if (isCheck) {
+						// 중복아이디 존재
+						JOptionPane.showMessageDialog(frame, "중복되는 아이디가 존재합니다. \n 다른 아이디를 사용해주세요.", "회원가입", JOptionPane.INFORMATION_MESSAGE);
+
+					} else {
+
+						MemberVO joinUser = new MemberVO(id, pw, name, addr, phone, code);
+
+						int cnt = controller.join(joinUser);
+						if (cnt == 1) {
+							JOptionPane.showMessageDialog(frame, "회원가입에 성공하셨습니다.", "회원가입",
+									JOptionPane.INFORMATION_MESSAGE);
+							frame.dispose();
+						}
 					}
+
 				}
 			}
+
 		});
 		btnJoin.setBounds(351, 615, 154, 46);
 		panel_1.add(btnJoin);
-		
+
 		btnCancel = new JButton("Cancel");
 		btnCancel.setForeground(Color.WHITE);
 		btnCancel.setBackground(Color.BLACK);
 		btnCancel.setFont(new Font("맑은 고딕", Font.BOLD, 18));
 		btnCancel.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				frame.dispose();
 				LoginGUI login = new LoginGUI();
 			}
 		});
 		btnCancel.setBounds(622, 615, 154, 46);
 		panel_1.add(btnCancel);
-		
+
 		URL url = this.getClass().getResource("../GUI_Image/join_main.jpg");
 		JLabel login_background = new JLabel(new ImageIcon(url.getPath()));
 		login_background.setBounds(0, 0, 1200, 800);
