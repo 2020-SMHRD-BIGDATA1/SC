@@ -27,24 +27,10 @@ public class BoardWriteMain {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					BoardWriteMain window = new BoardWriteMain();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the application.
-	 */
 	public BoardWriteMain() {
 		initialize();
+		frame.setVisible(true);
 	}
 
 	/**
@@ -61,7 +47,7 @@ public class BoardWriteMain {
 		frame.getContentPane().add(lblNewLabel);
 		
 		inputTitle = new JTextField();
-		inputTitle.setHorizontalAlignment(SwingConstants.TRAILING);
+		inputTitle.setHorizontalAlignment(SwingConstants.LEFT);
 		inputTitle.setBounds(225, 37, 398, 45);
 		frame.getContentPane().add(inputTitle);
 		inputTitle.setColumns(10);
@@ -71,11 +57,13 @@ public class BoardWriteMain {
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		inputAddr = new JTextField();
+		inputAddr.setHorizontalAlignment(SwingConstants.LEFT);
 		inputAddr.setBounds(225, 116, 398, 45);
 		frame.getContentPane().add(inputAddr);
 		inputAddr.setColumns(10);
 		
 		inputContent = new JTextField();
+		inputContent.setHorizontalAlignment(SwingConstants.LEFT);
 		inputContent.setBounds(25, 196, 544, 438);
 		frame.getContentPane().add(inputContent);
 		inputContent.setColumns(10);
@@ -98,6 +86,10 @@ public class BoardWriteMain {
 						    "작성 성공!!!!",
 						    "결과",
 						    JOptionPane.PLAIN_MESSAGE);
+						    
+					frame.dispose();
+					BoardShowMain boardShowMain = new BoardShowMain();
+				    
 				}
 				else
 					JOptionPane.showMessageDialog(frame,

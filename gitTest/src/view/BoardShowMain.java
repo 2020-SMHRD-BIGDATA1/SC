@@ -118,6 +118,14 @@ public class BoardShowMain {
 		panel_2.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JButton btn_writing = new JButton("\uAE00 \uC791\uC131");
+		btn_writing.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				frame.dispose();
+				BoardWriteMain boardWriteMain = new BoardWriteMain();
+	
+			}
+		});
 		btn_writing.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
 		btn_writing.setForeground(new Color(0, 204, 153));
 		btn_writing.setBackground(new Color(0, 0, 0));

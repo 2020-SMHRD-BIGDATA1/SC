@@ -2,6 +2,7 @@ package model;
 
 public class MemberVO {
 	
+	private int number;
 	private String id;
 	private String pw;
 	private String name ;
@@ -20,6 +21,30 @@ public class MemberVO {
 	
 	
 
+	
+public MemberVO(int number, String id, String name, String addr, String phone) {
+		super();
+		this.number = number;
+		this.id = id;
+		this.name = name;
+		this.addr = addr;
+		this.phone = phone;
+	}
+
+
+
+
+//	public MemberVO(String id, String name, String addr, String phone) {
+//		super();
+//		this.number = number;
+//		this.id = id;
+//		this.name = name;
+//		this.addr = addr;
+//		this.phone = phone;
+//	}
+
+
+
 	public MemberVO(String id, String pw) {
 		this.id = id;
 		this.pw = pw;
@@ -32,6 +57,21 @@ public class MemberVO {
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
+	}
+
+
+
+
+
+
+	public int getNumber() {
+		return number;
+	}
+
+
+
+	public void setNumber(int number) {
+		this.number = number;
 	}
 
 

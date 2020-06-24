@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -19,7 +18,9 @@ import javax.swing.table.DefaultTableModel;
 
 import model.BoardVO;
 
-public class ShowDB extends JPanel implements MouseListener {
+public class UserShowDB extends JPanel implements MouseListener {
+	public UserShowDB() {
+	}
 	
 	private static Connection conn;
 	private static PreparedStatement pst;
@@ -27,7 +28,6 @@ public class ShowDB extends JPanel implements MouseListener {
 	private JTable table = null;
 	Vector<String> colName = new Vector<String>();
 	private ArrayList<BoardVO> list = new ArrayList<BoardVO>();
-	private LoginGUI gui = new LoginGUI();
 	
 	public int getBoardNum(int row) {
 		return list.get(row).getNumber();

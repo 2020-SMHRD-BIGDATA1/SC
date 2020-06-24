@@ -27,6 +27,7 @@ public class LoginGUI {
 	private JTextField inputID;
 	private JPasswordField inputPW;
 	public static MemberMS controller = new MemberMS();
+	public static MemberVO loginUser;
 
 	/**
 	 * Launch the application.
@@ -87,6 +88,8 @@ public class LoginGUI {
 		btnLogin.setBackground(new Color(0, 0, 0));
 		btnLogin.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 18));
 		btnLogin.addActionListener(new ActionListener() {
+			
+
 			public void actionPerformed(ActionEvent e) {
 				
 
@@ -96,7 +99,7 @@ public class LoginGUI {
 
 				MemberVO user = new MemberVO(id, pw);
 				
-				MemberVO loginUser = controller.login(user);
+				loginUser = controller.login(user);
 				
 				if (loginUser == null) {
 					

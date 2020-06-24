@@ -14,6 +14,8 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.SystemColor;
 import java.net.URL;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainGUIManager {
 
@@ -52,6 +54,21 @@ public class MainGUIManager {
 		panel_1.setLayout(null);
 		
 		btnMembers = new JButton("");
+		btnMembers.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				frame.dispose();
+				AdminShowMemberMain adminShowMemberMain = new AdminShowMemberMain();
+				
+				
+				
+				
+				
+				
+				
+			}
+		});
 		btnMembers.setBounds(0, 0, 303, 156);
 		btnMembers.setOpaque(false);
 		btnMembers.setContentAreaFilled(false);
@@ -59,6 +76,16 @@ public class MainGUIManager {
 		panel_1.add(btnMembers);
 		
 		btnBoard = new JButton("");
+		btnBoard.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				frame.dispose();
+				AdminShowMain adminShowMain = new AdminShowMain();
+				
+				
+				
+			}
+		});
 		btnBoard.setBounds(0, 205, 303, 156);
 		btnBoard.setOpaque(false);
 		btnBoard.setContentAreaFilled(false);

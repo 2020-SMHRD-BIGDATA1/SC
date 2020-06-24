@@ -104,4 +104,60 @@ public class MemberDAO {
 		return cnt;
 	}
 
+	public MemberVO getBoard(int memberNum) {
+		MemberVO vo = null;
+		getConnection();
+		//String sql = "select number, memberID, memberName, memberAddr, memberPhone from MEMBERS where boardNum = ?";
+		String sql = "select * from MEMBERS where memberNum = ?";
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, memberNum);
+			rs = pst.executeQuery();
+			
+		if(rs.next()) {
+			
+			int number = rs.getInt(1);
+			String id = rs.getString(2);
+			String name = rs.getString(4);
+			String addr = rs.getString(5);
+			String phone = rs.getString(6);
+			
+			vo = new MemberVO(number, id, name, addr, phone);
+		}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+	
+		
+		
+		return vo;
+	}
+
+	public int remove(int memberNum) {
+		int cnt = 0;
+		getConnection();
+		System.out.println("여기야여기" + memberNum);
+		try {
+			
+			String sql = "delete from MEMBERS where memberNUM = ?";
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, memberNum);
+		
+			cnt = pst.executeUpdate();
+			System.out.println("너는" + cnt);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+	
+		return cnt;
+	}
+
 }

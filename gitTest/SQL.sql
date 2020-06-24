@@ -17,6 +17,7 @@ create sequence Members_Sequence
 select * from members
 
 drop table members
+drop sequence Members_Sequence
 
 create table BOARDS(
 					boardNum number 			,
