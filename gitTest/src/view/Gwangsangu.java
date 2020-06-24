@@ -1,14 +1,22 @@
 package view;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import java.awt.*;
+import java.awt.Container;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import javax.swing.*;
+import java.net.URL;
+
+import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.Window;
+import javax.swing.JButton;
+
 
 public class Gwangsangu extends JFrame {
    Container contentPane;
@@ -110,10 +118,15 @@ public class Gwangsangu extends JFrame {
       setTitle("ComboBox");
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       contentPane = getContentPane();
+      
       contentPane.setLayout(new FlowLayout());
 
       JComboBox strCombo = new JComboBox(gu);
+      strCombo.setMaximumRowCount(15);
+      strCombo.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 16));
+      strCombo.setBounds(31, 206, 130, 30);
 
+      
       strCombo.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             JComboBox cb = (JComboBox) e.getSource();
@@ -124,13 +137,54 @@ public class Gwangsangu extends JFrame {
          }
       });
 
-      contentPane.add(strCombo);
-      contentPane.add(imgLabel);
+      getContentPane().setLayout(null);
+		
+		contentPane.add(strCombo);
+		imgLabel.setBounds(197, 153, 964, 581);
+		contentPane.add(imgLabel);
 
-      setSize(1017, 711);
-      setVisible(true);
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
+		panel.setBounds(0, 0, 1200, 800);
+		getContentPane().add(panel);
 
-   }
+		JButton btn_storage = new JButton("HOME");
+		btn_storage.addActionListener(new ActionListener() {
+			
+
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				MainGUIUser mainuser = new MainGUIUser();				
+			}
+		});
+		btn_storage.setForeground(new Color(0, 204, 153));
+		btn_storage.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
+		btn_storage.setBackground(Color.BLACK);
+		btn_storage.setBounds(31, 32, 113, 32);
+		panel.add(btn_storage);
+		
+		JButton btn_storage_1 = new JButton("\uB4A4\uB85C\uAC00\uAE30");
+		btn_storage_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				GwangjuMapMain gwangjumap = new GwangjuMapMain();
+			}
+		});
+		btn_storage_1.setForeground(new Color(0, 204, 153));
+		btn_storage_1.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
+		btn_storage_1.setBackground(Color.BLACK);
+		btn_storage_1.setBounds(31, 700, 113, 32);
+		panel.add(btn_storage_1);
+		
+		URL url = this.getClass().getResource("../GUI_Image/gwangsangu_map.jpg");
+		panel.setLayout(null);
+		JLabel login_background = new JLabel(new ImageIcon(url.getPath()));
+		login_background.setBounds(0, 0, 1200, 761);
+		panel.add(login_background);
+		
+		setBounds(100, 100, 1210, 800);
+		setVisible(true);
+	}
 
    public static void main(String arg[]) {
 

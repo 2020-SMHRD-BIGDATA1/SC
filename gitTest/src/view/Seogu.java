@@ -13,7 +13,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.Window;
 import javax.swing.JButton;
+
 
 public class Seogu extends JFrame {
 	Container contentPane;
@@ -75,16 +78,46 @@ public class Seogu extends JFrame {
 
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
-		panel.setBounds(0, 0, 1194, 761);
+		panel.setBounds(0, 0, 1200, 800);
 		getContentPane().add(panel);
 
+		JButton btn_storage = new JButton("HOME");
+		btn_storage.addActionListener(new ActionListener() {
+			
+
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				MainGUIUser mainuser = new MainGUIUser();				
+			}
+		});
+		btn_storage.setForeground(new Color(0, 204, 153));
+		btn_storage.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
+		btn_storage.setBackground(Color.BLACK);
+		btn_storage.setBounds(31, 32, 113, 32);
+		panel.add(btn_storage);
+		
+		JButton btn_storage_1 = new JButton("\uB4A4\uB85C\uAC00\uAE30");
+		btn_storage_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				GwangjuMapMain gwangjumap = new GwangjuMapMain();
+			}
+		});
+		btn_storage_1.setForeground(new Color(0, 204, 153));
+		btn_storage_1.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
+		btn_storage_1.setBackground(Color.BLACK);
+		btn_storage_1.setBounds(31, 700, 113, 32);
+		panel.add(btn_storage_1);
+		
 		URL url = this.getClass().getResource("../GUI_Image/seogu_map.jpg");
 		panel.setLayout(null);
 		JLabel login_background = new JLabel(new ImageIcon(url.getPath()));
 		login_background.setBounds(0, 0, 1200, 761);
 		panel.add(login_background);
+		
+		
 
-		setSize(1210, 800);
+		setBounds(100, 100, 1210, 800);
 		setVisible(true);
 
 	}

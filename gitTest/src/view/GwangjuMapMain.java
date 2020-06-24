@@ -14,15 +14,17 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GwangjuMapMain {
 
 	private JFrame frame;
 	private JButton donggu;
-	private JButton seogu;
 	private JButton namgu;
 	private JButton bukgu;
 	private JButton gwangsangu;
+	private JButton seogu_1;
 	private JButton btn_back;
 	private JPanel panel_2;
 
@@ -51,30 +53,60 @@ public class GwangjuMapMain {
 		panel_1.setLayout(new GridLayout(5, 0, 0, 25));
 		
 		donggu = new JButton("");
+		donggu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				Donggu donggu = new Donggu();
+			}
+		});
 		donggu.setOpaque(false);
 		donggu.setContentAreaFilled(false);
 		donggu.setBorderPainted(false);
 		panel_1.add(donggu);
 		
-		seogu = new JButton("");
-		seogu.setOpaque(false);
-		seogu.setContentAreaFilled(false);
-		seogu.setBorderPainted(false);
-		panel_1.add(seogu);
+		seogu_1 = new JButton("");
+		seogu_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				Seogu seogu = new Seogu();
+			}
+		});
+		seogu_1.setOpaque(false);
+		seogu_1.setContentAreaFilled(false);
+		seogu_1.setBorderPainted(false);
+		panel_1.add(seogu_1);
 		
 		namgu = new JButton("");
+		namgu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				Namgu namgu = new Namgu();
+			}
+		});
 		namgu.setOpaque(false);
 		namgu.setContentAreaFilled(false);
 		namgu.setBorderPainted(false);
 		panel_1.add(namgu);
 		
 		bukgu = new JButton("");
+		bukgu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				Bukgu bukgu = new Bukgu();
+			}
+		});
 		bukgu.setOpaque(false);
 		bukgu.setContentAreaFilled(false);
 		bukgu.setBorderPainted(false);
 		panel_1.add(bukgu);
 		
 		gwangsangu = new JButton("");
+		gwangsangu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				Gwangsangu gwangsangu = new Gwangsangu();
+			}
+		});
 		gwangsangu.setOpaque(false);
 		gwangsangu.setContentAreaFilled(false);
 		gwangsangu.setBorderPainted(false);
@@ -87,6 +119,12 @@ public class GwangjuMapMain {
 		panel.add(panel_2);
 		
 		btn_back = new JButton("\uB4A4\uB85C \uAC00\uAE30");
+		btn_back.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				MainGUIUser mainuser = new MainGUIUser();
+			}
+		});
 		panel_2.add(btn_back);
 		btn_back.setForeground(new Color(0, 204, 153));
 		btn_back.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));

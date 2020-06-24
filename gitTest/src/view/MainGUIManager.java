@@ -100,6 +100,12 @@ public class MainGUIManager {
 		panel_1.add(btnGuitar);
 		
 		btnCctv = new JButton("");
+		btnCctv.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				GwangjuMapMain gwangjumap = new GwangjuMapMain();
+			}
+		});
 		btnCctv.setBounds(412, 0, 303, 156);
 		btnCctv.setOpaque(false);
 		btnCctv.setContentAreaFilled(false);
