@@ -4,6 +4,7 @@ import java.awt.CardLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -147,8 +148,8 @@ public class JoinGUI {
 		btnCancel.setBounds(622, 615, 154, 46);
 		panel_1.add(btnCancel);
 		
-		String path = "C:\\Users\\SMHRD\\Desktop\\JavaStudy\\join_main.jpg";
-		JLabel login_background = new JLabel(new ImageIcon(path));
+		URL url = this.getClass().getResource("../GUI_Image/join_main.jpg");
+		JLabel login_background = new JLabel(new ImageIcon(url.getPath()));
 		login_background.setBounds(0, 0, 1200, 800);
 		panel_1.add(login_background);
 	}

@@ -1,9 +1,12 @@
 package view;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,12 +16,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import controller.MemberMS;
 import model.MemberVO;
-import javax.swing.SwingConstants;
-import java.awt.Color;
-import java.awt.Font;
 
 public class LoginGUI {
 
@@ -133,8 +134,8 @@ public class LoginGUI {
 		btnJoin.setBounds(622, 590, 154, 46);
 		panel_1.add(btnJoin);
 
-		String path = "C:\\Users\\SMHRD\\Desktop\\JavaStudy\\login_main.jpg";
-		JLabel login_background = new JLabel(new ImageIcon(path));
+		URL url = this.getClass().getResource("../GUI_Image/login_main.jpg");
+		JLabel login_background = new JLabel(new ImageIcon(url.getPath()));
 		login_background.setBounds(0, 0, 1200, 800);
 		panel_1.add(login_background);
 		

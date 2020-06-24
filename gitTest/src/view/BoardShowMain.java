@@ -15,9 +15,12 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.net.URL;
 import java.util.Arrays;
 import java.awt.GridLayout;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class BoardShowMain {
 
@@ -81,6 +84,12 @@ public class BoardShowMain {
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JButton btn_home = new JButton("HOME");
+		btn_home.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				MainGUIUser mainuser = new MainGUIUser();
+			}
+		});
 		btn_home.setBackground(new Color(0, 0, 0));
 		btn_home.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
 		btn_home.setForeground(new Color(0, 204, 153));
@@ -92,6 +101,12 @@ public class BoardShowMain {
 		panel_1.setLayout(new GridLayout(1, 0, 0, 0));
 		
 		btn_back = new JButton("\uB4A4\uB85C \uAC00\uAE30");
+		btn_back.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				MainGUIUser mainuser = new MainGUIUser();
+			}
+		});
 		btn_back.setBackground(new Color(0, 0, 0));
 		btn_back.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
 		btn_back.setForeground(new Color(0, 204, 153));
@@ -102,7 +117,7 @@ public class BoardShowMain {
 		frame.getContentPane().add(panel_2);
 		panel_2.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JButton btn_writing = new JButton("\uAE00\uC791\uC131");
+		JButton btn_writing = new JButton("\uAE00 \uC791\uC131");
 		btn_writing.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
 		btn_writing.setForeground(new Color(0, 204, 153));
 		btn_writing.setBackground(new Color(0, 0, 0));
@@ -110,8 +125,8 @@ public class BoardShowMain {
 		frame.setBounds(100, 100, 1200, 800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		String path = "C:\\Users\\SMHRD\\Desktop\\JavaStudy\\user_board.jpg";
-		JLabel login_background = new JLabel(new ImageIcon(path));
+		URL url = this.getClass().getResource("../GUI_Image/user_board.jpg");
+		JLabel login_background = new JLabel(new ImageIcon(url.getPath()));
 		frame.getContentPane().add(login_background);
 		login_background.setBounds(0, 0, 1184, 761);
 	}

@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import java.awt.GridLayout;
 import javax.swing.Icon;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import java.awt.event.ActionEvent;
 
 public class MainGUIUser {
@@ -68,8 +69,8 @@ public class MainGUIUser {
 		btnBoard.setContentAreaFilled(false);
 		btnBoard.setBorderPainted(false);
 		
-		String path = "C:\\Users\\SMHRD\\Desktop\\JavaStudy\\user_main.jpg";
-		JLabel login_background = new JLabel(new ImageIcon(path));
+		URL url = this.getClass().getResource("../GUI_Image/user_main.jpg");
+		JLabel login_background = new JLabel(new ImageIcon(url.getPath()));
 		login_background.setBounds(0, 0, 1200, 800);
 		panel.add(login_background);
 	}
