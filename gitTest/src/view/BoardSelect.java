@@ -21,6 +21,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import java.awt.event.ActionEvent;
 
 public class BoardSelect {
@@ -139,8 +140,8 @@ public class BoardSelect {
 		
 		lblMemberID.setText(boardvo.getId());
 		
-		String path = "C:\\Users\\SMHRD\\Desktop\\JavaStudy\\board_view.jpg";
-		JLabel login_background = new JLabel(new ImageIcon(path));
+		URL url = this.getClass().getResource("../GUI_Image/board_view.jpg");
+		JLabel login_background = new JLabel(new ImageIcon(url.getPath()));
 		login_background.setBounds(0, 0, 1200, 800);
 		panel_1.add(login_background);
 		
