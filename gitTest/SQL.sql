@@ -29,7 +29,9 @@ create table BOARDS(
 					constraint boardNum_pk PRIMARY KEY(boardNum),
               	 	constraint memberID_fk FOREIGN KEY(memberID)
                		references members(memberID)
-				   )
+					)
+               		
+
 create sequence BOARDS_Sequence
 	start with 1
 	increment by 1;
