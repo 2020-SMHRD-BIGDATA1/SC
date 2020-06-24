@@ -13,8 +13,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import model.BoardDAO;
 import model.BoardVO;
+import model.MemberDAO;
+import model.MemberVO;
 
 public class AdminSelect {
 
@@ -23,7 +24,7 @@ public class AdminSelect {
 	private ResultSet rs;
 	
 	public JFrame frame;
-	private int boardNum;
+	private int memberNum;
 	private JLabel lblTitle;
 	private String id;
 	private String addr;
@@ -51,24 +52,23 @@ public class AdminSelect {
 	/**
 	 * Create the application.
 	 */
-	public AdminSelect(int boardNum) {
-		initialize(boardNum);
+	public AdminSelect(int memberNum) {
+		initialize(memberNum);
 		frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(int boardNum) {
+	private void initialize(int memberNum) {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 574, 547);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		
-		BoardDAO dao = new BoardDAO();
-		BoardVO boardvo = dao.getBoard(boardNum);
-		System.out.println(boardvo.getTitle()+"잘나왔다."+boardvo.getAddr());
+		MemberDAO dao = new MemberDAO();
+		MemberVO Membervo = dao.getBoard(memberNum);
 		
 		
 		JLabel lblNewLabel = new JLabel("\uC81C\uBAA9");
@@ -79,7 +79,7 @@ public class AdminSelect {
 		lblTitle.setBounds(169, 10, 377, 48);
 		frame.getContentPane().add(lblTitle);
 		
-		lblTitle.setText(boardvo.getTitle());
+		lblTitle.setText(Membervo.getAddr());
 		
 		
 		JLabel lblNewLabel_2 = new JLabel("\uC8FC\uC18C");
@@ -90,13 +90,13 @@ public class AdminSelect {
 		lblAddr.setBounds(169, 127, 377, 48);
 		frame.getContentPane().add(lblAddr);
 		
-		lblAddr.setText(boardvo.getAddr());
+		lblAddr.setText(Membervo.getAddr());
 		
 		JLabel lblContent = new JLabel("New label");
 		lblContent.setBounds(12, 228, 534, 178);
 		frame.getContentPane().add(lblContent);
 		
-		lblContent.setText(boardvo.getContent());
+		lblContent.setText(Membervo.getPhone());
 		
 	
 	
@@ -115,14 +115,14 @@ public class AdminSelect {
 		lblMemberID.setBounds(169, 68, 377, 48);
 		frame.getContentPane().add(lblMemberID);
 		
-		lblMemberID.setText(boardvo.getId());
+		lblMemberID.setText(Membervo.getId());
 		
 		JButton btnRemove = new JButton("\uAE00 \uC0AD\uC81C");
 		btnRemove.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("여기야" + boardNum);
+				System.out.println("여기야" + memberNum);
 				
-				int cnt = dao.remove(boardNum);
+				int cnt = dao.remove(memberNum);
 				
 				if(cnt !=0 )
 				{

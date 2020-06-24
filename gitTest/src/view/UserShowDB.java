@@ -19,6 +19,8 @@ import javax.swing.table.DefaultTableModel;
 import model.BoardVO;
 
 public class UserShowDB extends JPanel implements MouseListener {
+	public UserShowDB() {
+	}
 	
 	private static Connection conn;
 	private static PreparedStatement pst;
