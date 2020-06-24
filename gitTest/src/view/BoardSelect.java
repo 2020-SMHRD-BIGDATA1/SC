@@ -20,6 +20,8 @@ import java.awt.GridLayout;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class BoardSelect {
 	private Connection conn;
@@ -84,14 +86,26 @@ public class BoardSelect {
 		panel_1.setLayout(null);
 		
 		btn_back = new JButton("\uB4A4\uB85C \uAC00\uAE30");
+		btn_back.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				BoardShowMain boardmain = new BoardShowMain();
+			}
+		});
 		btn_back.setBounds(28, 703, 107, 29);
 		btn_back.setBackground(Color.BLACK);
 		btn_back.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
 		btn_back.setForeground(new Color(0, 204, 153));
 		panel_1.add(btn_back);
 		
-		btn_storage = new JButton("\uAE00 \uC791\uC131");
-		btn_storage.setBounds(1020, 703, 107, 32);
+		btn_storage = new JButton("HOME");
+		btn_storage.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				MainGUIUser mainuser = new MainGUIUser();
+			}
+		});
+		btn_storage.setBounds(22, 25, 113, 32);
 		btn_storage.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
 		btn_storage.setForeground(new Color(0, 204, 153));
 		btn_storage.setBackground(Color.BLACK);
