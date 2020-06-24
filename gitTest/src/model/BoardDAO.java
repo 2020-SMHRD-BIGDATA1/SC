@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Vector;
 
 public class BoardDAO {
 
@@ -120,6 +119,28 @@ public class BoardDAO {
 		
 		return vo;
 		
+	}
+	public int remove(int boardNum) {
+		int cnt = 0;
+		getConnection();
+		System.out.println("여기야여기" + boardNum);
+		try {
+			
+			String sql = "delete from BOARDS where BOARDNUM = ?";
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, boardNum);
+		
+			cnt = pst.executeUpdate();
+			System.out.println("너는" + cnt);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+	
+		return cnt;
 	}
 	
 
