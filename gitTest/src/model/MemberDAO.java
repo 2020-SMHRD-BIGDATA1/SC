@@ -167,5 +167,31 @@ public class MemberDAO {
 	
 		return cnt;
 	}
+	public int remove(int boardNum) {
+		int cnt = 0;
+		getConnection();
+		
+		try {
+			String sql = "delete from BOARDS where boardNum = ?";
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, boardNum);
+			
+			cnt = pst.executeUpdate();
+			
+			System.out.println("³Ê´Â" + cnt);
+			
+			
+		
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		
+		return cnt;
+	}
 
 }

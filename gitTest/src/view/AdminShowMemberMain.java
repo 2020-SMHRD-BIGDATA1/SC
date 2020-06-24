@@ -85,10 +85,12 @@ public class AdminShowMemberMain {
 				if(col == 1) {
 					int memberNum = testmain.getBoardNum(row);
 					System.out.println(memberNum);
-					AdminSelect adminSelect = new AdminSelect(memberNum);
+					AdminMemberSelect adminMemberSelect = new AdminMemberSelect(memberNum);
 					//boardSelect.setBoardNum(boardNum);
-					adminSelect.frame.setVisible(true);
+					
 					frame.dispose();
+					adminMemberSelect.frame.setVisible(true);
+					
 				}
 					
 				

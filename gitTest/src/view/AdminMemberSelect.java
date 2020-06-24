@@ -24,7 +24,7 @@ public class AdminMemberSelect {
 	
 	
 	
-	private JFrame frame;
+	JFrame frame;
 	private int memberNum;
 	private JLabel lblTitle;
 	private String id;
