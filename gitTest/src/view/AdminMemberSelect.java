@@ -115,15 +115,15 @@ public class AdminMemberSelect {
 		JLabel lblMemberID = new JLabel("New label");
 		lblMemberID.setBounds(169, 68, 377, 48);
 		frame.getContentPane().add(lblMemberID);
-		
-		lblMemberID.setText(membervo.getId());
+		String a = membervo.getId();
+		lblMemberID.setText(a);
 		
 		JButton btnRemove = new JButton("\uAE00 \uC0AD\uC81C");
 		btnRemove.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("¿©±â¾ß" + memberNum);
 				
-				int cnt = dao.remove(memberNum);
+				int cnt = dao.remove(a, memberNum);
 				
 				if(cnt !=0 )
 				{

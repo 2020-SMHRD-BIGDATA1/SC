@@ -137,18 +137,26 @@ public class MemberDAO {
 		return vo;
 	}
 
-	public int remove(int memberNum) {
+	public int remove(String a, int memberNum) {
 		int cnt = 0;
 		getConnection();
-		System.out.println("여기야여기" + memberNum);
+		
 		try {
-			
-			String sql = "delete from MEMBERS where memberNUM = ?";
+			String sql = "delete from BOARDS where memberID = ?";
 			pst = conn.prepareStatement(sql);
-			pst.setInt(1, memberNum);
+			pst.setString(1, a);
 		
 			cnt = pst.executeUpdate();
+			
 			System.out.println("너는" + cnt);
+			
+			
+			sql = "delete from MEMBERS where memberNum = ?";
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, memberNum);
+			
+			cnt = pst.executeUpdate();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

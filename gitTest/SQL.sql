@@ -28,9 +28,8 @@ create table BOARDS(
 					boardDate date 				default SYSDATE,
 					constraint boardNum_pk PRIMARY KEY(boardNum),
               	 	constraint memberID_fk FOREIGN KEY(memberID)
-               		references members(memberID),
-               		constraint memberID_uk UNIQUE(memberID)
-				   );
+               		references members(memberID)
+				   )
 create sequence BOARDS_Sequence
 	start with 1
 	increment by 1;

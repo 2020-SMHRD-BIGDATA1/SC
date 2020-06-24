@@ -78,8 +78,9 @@ public class AdminShowMain {
 					System.out.println(boardNum);
 					AdminSelect adminSelect = new AdminSelect(boardNum);
 					//boardSelect.setBoardNum(boardNum);
-					adminSelect.frame.setVisible(true);
+					
 					frame.dispose();
+					adminSelect.frame.setVisible(true);
 				}
 					
 				

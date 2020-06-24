@@ -13,9 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import model.BoardDAO;
 import model.BoardVO;
-import model.MemberDAO;
-import model.MemberVO;
 
 public class AdminSelect {
 
@@ -24,7 +23,7 @@ public class AdminSelect {
 	private ResultSet rs;
 	
 	public JFrame frame;
-	private int memberNum;
+	private int boardNum;
 	private JLabel lblTitle;
 	private String id;
 	private String addr;
@@ -52,23 +51,23 @@ public class AdminSelect {
 	/**
 	 * Create the application.
 	 */
-	public AdminSelect(int memberNum) {
-		initialize(memberNum);
+	public AdminSelect(int boardNum) {
+		initialize(boardNum);
 		frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(int memberNum) {
+	private void initialize(int boardNum) {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 574, 547);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		
-		MemberDAO dao = new MemberDAO();
-		MemberVO Membervo = dao.getBoard(memberNum);
+		BoardDAO dao = new BoardDAO();
+		BoardVO boardvo = dao.getBoard(boardNum);
 		
 		
 		JLabel lblNewLabel = new JLabel("\uC81C\uBAA9");
@@ -79,7 +78,7 @@ public class AdminSelect {
 		lblTitle.setBounds(169, 10, 377, 48);
 		frame.getContentPane().add(lblTitle);
 		
-		lblTitle.setText(Membervo.getAddr());
+		lblTitle.setText(boardvo.getTitle());
 		
 		
 		JLabel lblNewLabel_2 = new JLabel("\uC8FC\uC18C");
@@ -90,13 +89,13 @@ public class AdminSelect {
 		lblAddr.setBounds(169, 127, 377, 48);
 		frame.getContentPane().add(lblAddr);
 		
-		lblAddr.setText(Membervo.getAddr());
+		lblAddr.setText(boardvo.getAddr());
 		
 		JLabel lblContent = new JLabel("New label");
 		lblContent.setBounds(12, 228, 534, 178);
 		frame.getContentPane().add(lblContent);
 		
-		lblContent.setText(Membervo.getPhone());
+		lblContent.setText(boardvo.getContent());
 		
 	
 	
@@ -114,19 +113,20 @@ public class AdminSelect {
 		JLabel lblMemberID = new JLabel("New label");
 		lblMemberID.setBounds(169, 68, 377, 48);
 		frame.getContentPane().add(lblMemberID);
-		
-		lblMemberID.setText(Membervo.getId());
+		String a = boardvo.getId();
+//		lblMemberID.setText(Membervo.getId());
+		lblMemberID.setText(a);
 		
 		JButton btnRemove = new JButton("\uAE00 \uC0AD\uC81C");
 		btnRemove.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("여기야" + memberNum);
 				
-				int cnt = dao.remove(memberNum);
+				
+				int cnt = dao.remove(boardNum);
 				
 				if(cnt !=0 )
 				{
-					JOptionPane.showMessageDialog(frame, ("삭제 성공!!!!"), "게시글 삭제",
+					JOptionPane.showMessageDialog(frame, ("삭제 성공!!!!"), "회원 삭제",
 					JOptionPane.INFORMATION_MESSAGE);
 					
 					frame.dispose();
@@ -134,7 +134,7 @@ public class AdminSelect {
 				}
 					
 				else
-					JOptionPane.showMessageDialog(frame, ("삭제 실패...."), "게시글 삭제",
+					JOptionPane.showMessageDialog(frame, ("삭제 실패...."), "회원 삭제",
 							JOptionPane.INFORMATION_MESSAGE);
 				
 			}
