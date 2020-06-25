@@ -137,10 +137,22 @@ public class LoginGUI {
 		btnJoin.setBounds(622, 590, 154, 46);
 		panel_1.add(btnJoin);
 
+		
+		JButton btnLogin_1 = new JButton("Exit");
+		btnLogin_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+			}
+		});
+		btnLogin_1.setForeground(Color.WHITE);
+		btnLogin_1.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 18));
+		btnLogin_1.setBackground(Color.BLACK);
+		btnLogin_1.setBounds(1079, 20, 96, 33);
+		panel_1.add(btnLogin_1);
+		
 		URL url = this.getClass().getResource("../GUI_Image/login_main.jpg");
 		JLabel login_background = new JLabel(new ImageIcon(url.getPath()));
 		login_background.setBounds(0, 0, 1200, 800);
 		panel_1.add(login_background);
-		
 	}
 }

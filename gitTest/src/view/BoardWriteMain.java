@@ -47,7 +47,7 @@ public class BoardWriteMain {
 		inputTitle = new JTextField();
 		inputTitle.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 14));
 		inputTitle.setHorizontalAlignment(SwingConstants.LEFT);
-		inputTitle.setBounds(88, 127, 427, 29);
+		inputTitle.setBounds(88, 144, 427, 29);
 		inputTitle.setOpaque(false);
 		frame.getContentPane().add(inputTitle);
 		inputTitle.setColumns(10);
@@ -55,7 +55,7 @@ public class BoardWriteMain {
 		inputAddr = new JTextField();
 		inputAddr.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 14));
 		inputAddr.setHorizontalAlignment(SwingConstants.LEFT);
-		inputAddr.setBounds(332, 171, 145, 29);
+		inputAddr.setBounds(88, 190, 427, 29);
 		inputAddr.setOpaque(false);
 		frame.getContentPane().add(inputAddr);
 		inputAddr.setColumns(10);
@@ -63,7 +63,7 @@ public class BoardWriteMain {
 		inputContent = new JTextField();
 		inputContent.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 14));
 		inputContent.setHorizontalAlignment(SwingConstants.LEFT);
-		inputContent.setBounds(88, 231, 427, 489);
+		inputContent.setBounds(88, 270, 427, 429);
 		inputContent.setOpaque(false);
 		frame.getContentPane().add(inputContent);
 		inputContent.setColumns(10);
@@ -106,6 +106,19 @@ public class BoardWriteMain {
 		
 		btnFinish.setBounds(406, 740, 109, 29);
 		frame.getContentPane().add(btnFinish);
+		
+		JButton btnFinish_1 = new JButton("\uB4A4\uB85C \uAC00\uAE30");
+		btnFinish_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				BoardShowMain userboardmain = new BoardShowMain();
+			}
+		});
+		btnFinish_1.setForeground(Color.PINK);
+		btnFinish_1.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 14));
+		btnFinish_1.setBackground(Color.BLACK);
+		btnFinish_1.setBounds(27, 740, 109, 29);
+		frame.getContentPane().add(btnFinish_1);
 		
 		URL url = this.getClass().getResource("../GUI_Image/writing_board.jpg");
 		JLabel login_background = new JLabel(new ImageIcon(url.getPath()));

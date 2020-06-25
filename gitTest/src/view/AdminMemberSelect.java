@@ -26,7 +26,7 @@ public class AdminMemberSelect {
 	
 	JFrame frame;
 	private int memberNum;
-	private JLabel lblTitle;
+	private JLabel lblShowID;
 	private String id;
 	private String addr;
 	private String name;
@@ -72,32 +72,26 @@ public class AdminMemberSelect {
 		System.out.println(membervo.getId()+"잘나왔다."+membervo.getAddr());
 		
 		
-		JLabel lblNewLabel = new JLabel("\uC81C\uBAA9");
-		lblNewLabel.setBounds(12, 10, 145, 48);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel lblID = new JLabel("\uC544\uC774\uB514");
+		lblID.setBounds(12, 10, 145, 48);
+		frame.getContentPane().add(lblID);
 		
-		lblTitle = new JLabel("New label");
-		lblTitle.setBounds(169, 10, 377, 48);
-		frame.getContentPane().add(lblTitle);
+		lblShowID = new JLabel("New label");
+		lblShowID.setBounds(169, 10, 377, 48);
+		frame.getContentPane().add(lblShowID);
 		
-		lblTitle.setText(membervo.getAddr());
+		lblShowID.setText(membervo.getId());
 		
 		
 		JLabel lblNewLabel_2 = new JLabel("\uC8FC\uC18C");
 		lblNewLabel_2.setBounds(12, 127, 145, 48);
 		frame.getContentPane().add(lblNewLabel_2);
 		
-		JLabel lblAddr = new JLabel("New label");
-		lblAddr.setBounds(169, 127, 377, 48);
-		frame.getContentPane().add(lblAddr);
+		JLabel lblShowAddr = new JLabel("New label");
+		lblShowAddr.setBounds(169, 127, 377, 48);
+		frame.getContentPane().add(lblShowAddr);
 		
-		lblAddr.setText(membervo.getAddr());
-		
-		JLabel lblContent = new JLabel("New label");
-		lblContent.setBounds(12, 228, 534, 178);
-		frame.getContentPane().add(lblContent);
-		
-		lblContent.setText(membervo.getName());
+		lblShowAddr.setText(membervo.getAddr());
 		
 	
 	
@@ -108,15 +102,15 @@ public class AdminMemberSelect {
 		
 		   
 		
-		JLabel lblNewLabel_1 = new JLabel("\uC791\uC131\uC790");
-		lblNewLabel_1.setBounds(0, 68, 157, 48);
+		JLabel lblNewLabel_1 = new JLabel("\uC774\uB984");
+		lblNewLabel_1.setBounds(12, 68, 145, 48);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		JLabel lblMemberID = new JLabel("New label");
-		lblMemberID.setBounds(169, 68, 377, 48);
-		frame.getContentPane().add(lblMemberID);
+		JLabel lblShowName = new JLabel("");
+		lblShowName.setBounds(169, 68, 377, 48);
+		frame.getContentPane().add(lblShowName);
 		String a = membervo.getId();
-		lblMemberID.setText(a);
+		lblShowName.setText(membervo.getName());
 		
 		JButton btnRemove = new JButton("\uAE00 \uC0AD\uC81C");
 		btnRemove.addActionListener(new ActionListener() {
@@ -144,6 +138,25 @@ public class AdminMemberSelect {
 		btnRemove.setBounds(435, 447, 97, 23);
 		frame.getContentPane().add(btnRemove);
 		
+		JButton btnBack = new JButton("\uB4A4\uB85C\uAC00\uAE30");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				frame.dispose();
+				AdminShowMemberMain adminShowMemberMain = new AdminShowMemberMain();
+			}
+		});
+		btnBack.setBounds(12, 447, 97, 23);
+		frame.getContentPane().add(btnBack);
+		
+		JLabel lblNewLabel_3 = new JLabel("\uD578\uB4DC\uD3F0 \uBC88\uD638");
+		lblNewLabel_3.setBounds(7, 197, 145, 48);
+		frame.getContentPane().add(lblNewLabel_3);
+		
+		JLabel lblShowPhone = new JLabel("New label");
+		lblShowPhone.setBounds(167, 194, 377, 48);
+		frame.getContentPane().add(lblShowPhone);
+		lblShowPhone.setText(membervo.getPhone());
 		
 	}
 	private void getConnection()
@@ -178,5 +191,4 @@ public class AdminMemberSelect {
 			}
 
 	}
-
 }
