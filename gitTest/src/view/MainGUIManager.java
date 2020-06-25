@@ -14,6 +14,8 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.SystemColor;
 import java.net.URL;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainGUIManager {
 
@@ -66,6 +68,13 @@ public class MainGUIManager {
 		panel_1.add(btnBoard);
 		
 		btnGuitar = new JButton("");
+		btnGuitar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				frame.dispose();
+				RequestMainGUI requestMain = new RequestMainGUI();
+			}
+		});
 		btnGuitar.setBounds(412, 205, 303, 156);
 		btnGuitar.setOpaque(false);
 		btnGuitar.setContentAreaFilled(false);

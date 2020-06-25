@@ -1,11 +1,12 @@
 create table MEMBERS (
 MemberNum NUMBER unique not null,
-MemberID VARCHAR2(20) primary key,
+MemberID VARCHAR2(20) ,
 MemberPW VARCHAR2(20) not null,
 MemberName VARCHAR2(20) not null,
 MemberAddr VARCHAR2(100) not null ,
-MemberPhone VARCHAR2(20)not null ,
-MemberCode VARCHAR2(20) unique not null
+MemberPhone VARCHAR2(20) not null ,
+MemberCode VARCHAR2(20) unique not null,
+constraint MemberID_pk PRIMARY KEY(Member_ID)
 )
 
 
@@ -35,7 +36,7 @@ create sequence BOARDS_Sequence
 	increment by 1;
 	
 insert into BOARDS(boardNum, boardTitle, boardContent, boardAddr)
-	values (BOARDS_Sequence.NEXTVAL, '力格3', '郴侩3', '林家3')
+	values (BOARDS_Sequence.NEXTVAL, '力格3', '郴侩3', '林家4')
 commit;
 	
 select * from BOARDS
