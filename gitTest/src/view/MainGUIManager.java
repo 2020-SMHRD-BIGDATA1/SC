@@ -54,6 +54,21 @@ public class MainGUIManager {
 		panel_1.setLayout(null);
 		
 		btnMembers = new JButton("");
+		btnMembers.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				frame.dispose();
+				AdminShowMemberMain adminShowMemberMain = new AdminShowMemberMain();
+				
+				
+				
+				
+				
+				
+				
+			}
+		});
 		btnMembers.setBounds(0, 0, 303, 156);
 		btnMembers.setOpaque(false);
 		btnMembers.setContentAreaFilled(false);
@@ -61,6 +76,16 @@ public class MainGUIManager {
 		panel_1.add(btnMembers);
 		
 		btnBoard = new JButton("");
+		btnBoard.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				frame.dispose();
+				AdminShowMain adminShowMain = new AdminShowMain();
+				
+				
+				
+			}
+		});
 		btnBoard.setBounds(0, 205, 303, 156);
 		btnBoard.setOpaque(false);
 		btnBoard.setContentAreaFilled(false);
@@ -82,6 +107,12 @@ public class MainGUIManager {
 		panel_1.add(btnGuitar);
 		
 		btnCctv = new JButton("");
+		btnCctv.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				GwangjuMapMain gwangjumap = new GwangjuMapMain();
+			}
+		});
 		btnCctv.setBounds(412, 0, 303, 156);
 		btnCctv.setOpaque(false);
 		btnCctv.setContentAreaFilled(false);

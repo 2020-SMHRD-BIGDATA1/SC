@@ -18,6 +18,7 @@ create sequence Members_Sequence
 select * from members
 
 drop table members
+drop sequence Members_Sequence
 
 create table BOARDS(
 					boardNum number 			,
@@ -28,9 +29,10 @@ create table BOARDS(
 					boardDate date 				default SYSDATE,
 					constraint boardNum_pk PRIMARY KEY(boardNum),
               	 	constraint memberID_fk FOREIGN KEY(memberID)
-               		references members(memberID),
-               		constraint memberID_uk UNIQUE(memberID)
-				   );
+               		references members(memberID)
+					)
+               		
+
 create sequence BOARDS_Sequence
 	start with 1
 	increment by 1;

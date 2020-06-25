@@ -3,16 +3,20 @@ package view;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import javax.swing.JTextField;
 import controller.BoardController;
 import model.BoardVO;
+import java.awt.Font;
+import java.awt.Color;
 
 public class BoardWriteMain {
 
@@ -20,31 +24,15 @@ public class BoardWriteMain {
 	private JTextField inputTitle;
 	private JTextField inputAddr;
 	private JTextField inputContent;
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_1;
-	private JButton btnFinish;
 	private BoardController controller = new BoardController();
+	private JButton btnFinish;
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					BoardWriteMain window = new BoardWriteMain();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the application.
-	 */
 	public BoardWriteMain() {
 		initialize();
+		frame.setVisible(true);
 	}
 
 	/**
@@ -52,35 +40,38 @@ public class BoardWriteMain {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 695, 805);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		lblNewLabel = new JLabel("\uC81C\uBAA9");
-		lblNewLabel.setBounds(25, 37, 171, 45);
-		frame.getContentPane().add(lblNewLabel);
+		frame.setBounds(100, 100, 560, 830);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		inputTitle = new JTextField();
-		inputTitle.setHorizontalAlignment(SwingConstants.TRAILING);
-		inputTitle.setBounds(225, 37, 398, 45);
+		inputTitle.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 14));
+		inputTitle.setHorizontalAlignment(SwingConstants.LEFT);
+		inputTitle.setBounds(88, 127, 427, 29);
+		inputTitle.setOpaque(false);
 		frame.getContentPane().add(inputTitle);
 		inputTitle.setColumns(10);
 		
-		lblNewLabel_1 = new JLabel("\uC8FC\uC18C");
-		lblNewLabel_1.setBounds(25, 116, 155, 54);
-		frame.getContentPane().add(lblNewLabel_1);
-		
 		inputAddr = new JTextField();
-		inputAddr.setBounds(225, 116, 398, 45);
+		inputAddr.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 14));
+		inputAddr.setHorizontalAlignment(SwingConstants.LEFT);
+		inputAddr.setBounds(332, 171, 145, 29);
+		inputAddr.setOpaque(false);
 		frame.getContentPane().add(inputAddr);
 		inputAddr.setColumns(10);
 		
 		inputContent = new JTextField();
-		inputContent.setBounds(25, 196, 544, 438);
+		inputContent.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 14));
+		inputContent.setHorizontalAlignment(SwingConstants.LEFT);
+		inputContent.setBounds(88, 231, 427, 489);
+		inputContent.setOpaque(false);
 		frame.getContentPane().add(inputContent);
 		inputContent.setColumns(10);
 		
-		btnFinish = new JButton("\uC644\uB8CC");
+		btnFinish = new JButton("\uC791\uC131 \uC644\uB8CC");
+		btnFinish.setForeground(Color.PINK);
+		btnFinish.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 14));
+		btnFinish.setBackground(Color.BLACK);
 		btnFinish.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -95,20 +86,30 @@ public class BoardWriteMain {
 				if(cnt == 1)
 				{
 					JOptionPane.showMessageDialog(frame,
-						    "ÀÛ¼º ¼º°ø!!!!",
+						    "ÀÛ¼º ¿Ï·á!!!!",
 						    "°á°ú",
 						    JOptionPane.PLAIN_MESSAGE);
+						    
+					frame.dispose();
+					BoardShowMain boardShowMain = new BoardShowMain();
+				    
 				}
 				else
 					JOptionPane.showMessageDialog(frame,
-						    "ÀÛ¼º ½ÇÆÐ....",
+						    "ÀÛ¼º ¿À·ù....",
 						    "°á°ú",
 						    JOptionPane.PLAIN_MESSAGE);
 				frame.setVisible(false);
 				} 
 
 		});
-		btnFinish.setBounds(444, 668, 179, 45);
+		
+		btnFinish.setBounds(406, 740, 109, 29);
 		frame.getContentPane().add(btnFinish);
+		
+		URL url = this.getClass().getResource("../GUI_Image/writing_board.jpg");
+		JLabel login_background = new JLabel(new ImageIcon(url.getPath()));
+		frame.getContentPane().add(login_background);
+		login_background.setBounds(0, 0, 550, 800);
 	}
 }

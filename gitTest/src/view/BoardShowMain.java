@@ -1,13 +1,8 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.ScrollPane;
-
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.table.TableModel;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
@@ -16,7 +11,6 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.net.URL;
-import java.util.Arrays;
 import java.awt.GridLayout;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -34,9 +28,6 @@ public class BoardShowMain {
 		frame.setVisible(true);
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setLayout(null);
@@ -67,8 +58,9 @@ public class BoardShowMain {
 					System.out.println(boardNum);
 					BoardSelect boardSelect = new BoardSelect(boardNum);
 					//boardSelect.setBoardNum(boardNum);
-					boardSelect.frame.setVisible(true);
+					
 					frame.dispose();
+					boardSelect.frame.setVisible(true);
 				}
 					
 				
@@ -118,6 +110,14 @@ public class BoardShowMain {
 		panel_2.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JButton btn_writing = new JButton("\uAE00 \uC791\uC131");
+		btn_writing.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				frame.dispose();
+				BoardWriteMain boardWriteMain = new BoardWriteMain();
+	
+			}
+		});
 		btn_writing.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
 		btn_writing.setForeground(new Color(0, 204, 153));
 		btn_writing.setBackground(new Color(0, 0, 0));

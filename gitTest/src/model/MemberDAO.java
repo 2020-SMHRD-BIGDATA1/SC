@@ -104,6 +104,7 @@ public class MemberDAO {
 		return cnt;
 	}
 
+<<<<<<< HEAD
 	public boolean idCheck(String id) {
 
 		boolean isCheck = false;
@@ -126,6 +127,96 @@ public class MemberDAO {
 		
 		
 		return isCheck;
+=======
+	public MemberVO getBoard(int memberNum) {
+		MemberVO vo = null;
+		getConnection();
+		//String sql = "select number, memberID, memberName, memberAddr, memberPhone from MEMBERS where boardNum = ?";
+		String sql = "select * from MEMBERS where memberNum = ?";
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, memberNum);
+			rs = pst.executeQuery();
+			
+		if(rs.next()) {
+			
+			int number = rs.getInt(1);
+			String id = rs.getString(2);
+			String name = rs.getString(4);
+			String addr = rs.getString(5);
+			String phone = rs.getString(6);
+			
+			vo = new MemberVO(number, id, name, addr, phone);
+		}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+	
+		
+		
+		return vo;
+	}
+
+	public int remove(String a, int memberNum) {
+		int cnt = 0;
+		getConnection();
+		
+		try {
+			String sql = "delete from BOARDS where memberID = ?";
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, a);
+		
+			cnt = pst.executeUpdate();
+			
+			System.out.println("너는" + cnt);
+			
+			
+			sql = "delete from MEMBERS where memberNum = ?";
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, memberNum);
+			
+			cnt = pst.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+	
+		return cnt;
+	}
+	public int remove(int boardNum) {
+		int cnt = 0;
+		getConnection();
+		
+		try {
+			String sql = "delete from BOARDS where boardNum = ?";
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, boardNum);
+			
+			cnt = pst.executeUpdate();
+			
+			System.out.println("너는" + cnt);
+			
+			
+		
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		
+		return cnt;
+>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA1/SC.git
 	}
 
 }

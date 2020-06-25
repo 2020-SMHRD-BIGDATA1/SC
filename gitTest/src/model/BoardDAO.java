@@ -5,14 +5,15 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Vector;
+
+import view.LoginGUI;
 
 public class BoardDAO {
 
 	private Connection conn;
 	private PreparedStatement pst;
 	private ResultSet rs;
-	
+	private LoginGUI gui;
 	
 	private void getConnection()
 	{
@@ -69,13 +70,15 @@ public class BoardDAO {
 		getConnection();
 		
 		try {
+//			String sql = "insert into BOARDS(boardNum, boardTitle, boardAddr, boardContent, memberID) "
+//					+ "values (BOARDS_Sequence.NEXTVAL, ?, ?, ?, ?)";
 			String sql = "insert into BOARDS(boardNum, boardTitle, boardAddr, boardContent, memberID) "
 					+ "values (BOARDS_Sequence.NEXTVAL, ?, ?, ?, ?)";
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, board.getTitle());
 			pst.setString(2, board.getAddr());
 			pst.setString(3, board.getContent());
-			pst.setString(4, "asjhklsd");//회원테이블에서 가져올 id
+			pst.setString(4, gui.loginUser.getId());//회원테이블에서 가져올 id
 			
 			row = pst.executeUpdate();
 			
@@ -120,6 +123,28 @@ public class BoardDAO {
 		
 		return vo;
 		
+	}
+	public int remove(int boardNum) {
+		int cnt = 0;
+		getConnection();
+		System.out.println("여기야여기" + boardNum);
+		try {
+			
+			String sql = "delete from BOARDS where BOARDNUM = ?";
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, boardNum);
+		
+			cnt = pst.executeUpdate();
+			System.out.println("너는" + cnt);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+	
+		return cnt;
 	}
 	
 

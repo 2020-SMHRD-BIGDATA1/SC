@@ -50,6 +50,12 @@ public class MainGUIUser {
 		panel_1.setLayout(null);
 		
 		btnCctv = new JButton("");
+		btnCctv.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				GwangjuMapMain gwangjumap = new GwangjuMapMain();
+			}
+		});
 		btnCctv.setBounds(0, 0, 302, 157);
 		btnCctv.setOpaque(false);
 		btnCctv.setContentAreaFilled(false);
