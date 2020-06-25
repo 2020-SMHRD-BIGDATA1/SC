@@ -11,7 +11,7 @@ public class RequestMS {
 
 	public RequestVO[] selectAddr() {
 
-		RequestVO[] list = new RequestVO[3];
+		RequestVO[] list = new RequestVO[5];
 
 		list = dao.selectAddr();
 
@@ -21,7 +21,7 @@ public class RequestMS {
 
 	public RequestVO[] selectDate() {
 
-		RequestVO[] list = new RequestVO[3];
+		RequestVO[] list = new RequestVO[5];
 
 		list = dao.selectDate();
 

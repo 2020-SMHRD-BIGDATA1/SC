@@ -118,9 +118,9 @@ public class RequestDAO {
 		String addrname = "";
 		int addrcnt = 0;
 		RequestVO vo = new RequestVO(addrname, addrcnt);
-		RequestVO[] array = new RequestVO[3];
+		RequestVO[] array = new RequestVO[5];
 
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 5; i++) {
 			vo = new RequestVO(listAddrName2[i], listAddrCnt2[i]);
 			array[i] = vo;
 		}
@@ -199,9 +199,9 @@ public class RequestDAO {
 		String DateVal = "";
 		int DateCnt = 0;
 		RequestVO vo = new RequestVO(DateVal, DateCnt);
-		RequestVO[] array = new RequestVO[3];
+		RequestVO[] array = new RequestVO[5];
 
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 5; i++) {
 			vo = new RequestVO(listDateVal2[i], listDateCnt2[i]);
 			array[i] = vo;
 		}

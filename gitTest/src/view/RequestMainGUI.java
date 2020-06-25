@@ -50,7 +50,9 @@ public class RequestMainGUI {
 		JPanel panel = new JPanel();
 		frame.getContentPane().add(panel, "name_54737740184600");
 
-		RequestVO[] list = new RequestVO[3];
+//		첫번째 그래프 (주소별)
+
+		RequestVO[] list = new RequestVO[5];
 
 		list = controller.selectAddr();
 
@@ -60,57 +62,48 @@ public class RequestMainGUI {
 
 		DefaultCategoryDataset dataset1 = new DefaultCategoryDataset();
 
-//		1.그래프 크기 2.범례 3.x축 이름
-
 		for (int i = 0; i < list.length; i++) {
 			dataset1.addValue(list[i].getCnt(), list[i].getAddr(), list[i].getAddr());
 		}
 
-//		1.제목 2.x축 제목 3.y축 제목 4.그래프 데이터 5.그래프 모양(가로 / 세로) 6,7,8. 그래프 기능
 		JFreeChart barChart = ChartFactory.createBarChart("주소별 CCTV 요청 통계", "주소", "요청 횟수", dataset1,
 				PlotOrientation.VERTICAL, false, true, true);
 
-//		1.폰트종류 2.폰트타입 3.크기
 		Font f = new Font("Gulim", Font.BOLD, 14);
 		barChart.getTitle().setFont(f);
 
 		CategoryPlot plot1 = barChart.getCategoryPlot();
-		plot1.getDomainAxis().setLabelFont(f); // x축 제목
-		plot1.getDomainAxis().setTickLabelFont(f); // x축 이름
-		plot1.getRangeAxis().setLabelFont(f); // y축 제목
-		plot1.getRangeAxis().setTickLabelFont(f); // y축 이름
+		plot1.getDomainAxis().setLabelFont(f);
+		plot1.getDomainAxis().setTickLabelFont(f);
+		plot1.getRangeAxis().setLabelFont(f);
+		plot1.getRangeAxis().setTickLabelFont(f);
 		panel.setLayout(new GridLayout(0, 2, 20, 0));
 
 		ChartPanel chartPanel = new ChartPanel(barChart);
 		panel.add(chartPanel);
 
-		list = controller.selectDate();
+//		두번째 그래프 (날짜별) 
 
-		for (int i = 0; i < list.length; i++) {
-			System.out.println(list[i].getAddr() + "  " + list[i].getCnt());
-		}
+		RequestVO[] list2 = new RequestVO[5];
+		list2 = controller.selectDate();
 
 		DefaultCategoryDataset dataset2 = new DefaultCategoryDataset();
 
-//		1.그래프 크기 2.범례 3.x축 이름
-
-		for (int i = 0; i < list.length; i++) {
-			dataset2.addValue(list[i].getCnt(), list[i].getAddr(), list[i].getAddr());
+		for (int i = 0; i < list2.length; i++) {
+			dataset2.addValue(list2[i].getCnt(), list2[i].getAddr(), list2[i].getAddr());
 		}
 
-//		1.제목 2.x축 제목 3.y축 제목 4.그래프 데이터 5.그래프 모양(가로 / 세로) 6,7,8. 그래프 기능
 		JFreeChart barChart2 = ChartFactory.createBarChart("일자별 CCTV 요청 통계", "날짜", "요청 횟수", dataset2,
 				PlotOrientation.VERTICAL, false, true, true);
 
-//		1.폰트종류 2.폰트타입 3.크기
 		Font f2 = new Font("Gulim", Font.BOLD, 14);
 		barChart2.getTitle().setFont(f2);
 
 		CategoryPlot plot2 = barChart2.getCategoryPlot();
-		plot2.getDomainAxis().setLabelFont(f2); // x축 제목
-		plot2.getDomainAxis().setTickLabelFont(f2); // x축 이름
-		plot2.getRangeAxis().setLabelFont(f2); // y축 제목
-		plot2.getRangeAxis().setTickLabelFont(f2); // y축 이름
+		plot2.getDomainAxis().setLabelFont(f2);
+		plot2.getDomainAxis().setTickLabelFont(f2);
+		plot2.getRangeAxis().setLabelFont(f2);
+		plot2.getRangeAxis().setTickLabelFont(f2);
 		panel.setLayout(new GridLayout(0, 2, 20, 0));
 
 		ChartPanel chartPanel2;
