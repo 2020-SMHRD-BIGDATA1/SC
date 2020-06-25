@@ -104,7 +104,6 @@ public class MemberDAO {
 		return cnt;
 	}
 
-<<<<<<< HEAD
 	public boolean idCheck(String id) {
 
 		boolean isCheck = false;
@@ -127,7 +126,7 @@ public class MemberDAO {
 		
 		
 		return isCheck;
-=======
+	}
 	public MemberVO getBoard(int memberNum) {
 		MemberVO vo = null;
 		getConnection();
@@ -216,7 +215,6 @@ public class MemberDAO {
 		
 		
 		return cnt;
->>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA1/SC.git
 	}
 
 }
