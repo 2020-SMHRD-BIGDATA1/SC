@@ -115,5 +115,5 @@ select * from BOARDS
 
 drop table BOARDS
 drop sequence BOARDS_Sequence
-
+select * from members
 select * from BOARDS
