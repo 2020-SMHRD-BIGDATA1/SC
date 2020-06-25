@@ -37,8 +37,8 @@ create sequence BOARDS_Sequence
 	start with 1
 	increment by 1;
 	
-insert into BOARDS(boardNum, boardTitle, boardContent, boardAddr)
-	values (BOARDS_Sequence.NEXTVAL, '力格3', '郴侩3', '林家4')
+insert into BOARDS(boardNum, boardTitle, boardContent, boardAddr, boardDate)
+	values (BOARDS_Sequence.NEXTVAL, '力格123', '郴侩2345', '林家34567', 2020-06-01 20:31:15)
 commit;
 	
 select * from BOARDS

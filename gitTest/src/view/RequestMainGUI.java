@@ -1,27 +1,21 @@
 package view;
 
-import java.awt.EventQueue;
+import java.awt.CardLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 
 import javax.swing.JFrame;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PiePlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 import controller.RequestMS;
 import model.RequestVO;
-import java.awt.CardLayout;
-import javax.swing.JPanel;
-import java.awt.GridLayout;
 
 public class RequestMainGUI {
 
